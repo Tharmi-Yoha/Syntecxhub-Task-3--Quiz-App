@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quizora — Interactive Quiz</title>
+
+    <meta name="description"
+          content="Quizora is a modern interactive quiz application with multiple categories and responsive design.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="StyleSheet1.css">
+</head>
+
+<body>
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="site-header">
+
+        <div class="container header-content">
+
+            <a href="#" class="logo">
+                QUIZ<span>ORA</span>
+            </a>
+
+            <div class="header-actions">
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle dark and light mode">
+
+                    <span id="themeIcon">☀</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+        <!-- ============================
+             WELCOME SECTION
+        ============================= -->
+
+        <section class="welcome-section" id="welcomeScreen">
+
+            <div class="container">
+
+                <div class="welcome-content">
+
+                    <span class="eyebrow">
+                        TEST YOUR KNOWLEDGE
+                    </span>
+
+                    <h1>
+                        Think.
+                        <span>Answer.</span>
+                        Master.
+                    </h1>
+
+                    <p class="welcome-description">
+                        Challenge yourself with carefully selected questions
+                        across different categories and discover how much you know.
+                    </p>
+
+                    <button class="primary-btn" id="startQuizBtn">
+                        Start Quiz
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+                <!-- Category Preview -->
+
+                <div class="category-preview">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <span class="small-label">
+                                EXPLORE
+                            </span>
+
+                            <h2>
+                                Choose Your Challenge
+                            </h2>
+                        </div>
+
+                        <span class="question-count">
+                            5 Categories · 100 Questions
+                        </span>
+
+                    </div>
+
+
+                    <div class="category-grid">
+
+                        <!-- Mathematics -->
+
+                        <button
+                            class="category-card"
+                            data-category="mathematics">
+
+                            <span class="category-number">
+                                01
+                            </span>
+
+                            <div class="category-icon">
+                                ∑
+                            </div>
+
+                            <h3>
+                                Mathematics
+                            </h3>
+
+                            <p>
+                                Numbers, algebra, geometry & problem solving
+                            </p>
+
+                            <span class="category-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- IT -->
+
+                        <button
+                            class="category-card"
+                            data-category="it">
+
+                            <span class="category-number">
+                                02
+                            </span>
+
+                            <div class="category-icon">
+                                &lt;/&gt;
+                            </div>
+
+                            <h3>
+                                Information Technology
+                            </h3>
+
+                            <p>
+                                Programming, hardware, software & networking
+                            </p>
+
+                            <span class="category-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- General Knowledge -->
+
+                        <button
+                            class="category-card"
+                            data-category="gk">
+
+                            <span class="category-number">
+                                03
+                            </span>
+
+                            <div class="category-icon">
+                                ?
+                            </div>
+
+                            <h3>
+                                General Knowledge
+                            </h3>
+
+                            <p>
+                                World facts, countries, history & geography
+                            </p>
+
+                            <span class="category-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- Animals -->
+
+                        <button
+                            class="category-card"
+                            data-category="animals">
+
+                            <span class="category-number">
+                                04
+                            </span>
+
+                            <div class="category-icon">
+                                ◉
+                            </div>
+
+                            <h3>
+                                Animals & Wildlife
+                            </h3>
+
+                            <p>
+                                Species, habitats, wildlife & animal facts
+                            </p>
+
+                            <span class="category-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <!-- Finance -->
+
+                        <button
+                            class="category-card"
+                            data-category="finance">
+
+                            <span class="category-number">
+                                05
+                            </span>
+
+                            <div class="category-icon">
+                                $
+                            </div>
+
+                            <h3>
+                                Money & Finance
+                            </h3>
+
+                            <p>
+                                Banking, currencies, saving & financial basics
+                            </p>
+
+                            <span class="category-arrow">
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             QUIZ SECTION
+        ================================= -->
+
+        <section
+            class="quiz-section hidden"
+            id="quizScreen">
+
+            <div class="container quiz-container">
+
+                <!-- Quiz Header -->
+
+                <div class="quiz-top">
+
+                    <div class="quiz-category">
+                        <span id="currentCategory">
+                            Mathematics
+                        </span>
+                    </div>
+
+                    <div class="question-counter">
+                        Question
+                        <strong id="currentQuestionNumber">
+                            01
+                        </strong>
+                        /
+                        <span id="totalQuestions">
+                            20
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- Progress -->
+
+                <div class="progress-wrapper">
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-bar"
+                            id="progressBar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Question -->
+
+                <div class="question-area">
+
+                    <span class="question-label">
+                        QUESTION
+                    </span>
+
+                    <h2 id="questionText">
+                        Question will appear here.
+                    </h2>
+
+                </div>
+
+
+                <!-- Answers -->
+
+                <div
+                    class="answers-container"
+                    id="answersContainer">
+
+                    <!-- JavaScript will insert answers -->
+
+                </div>
+
+
+                <!-- Quiz Navigation -->
+
+                <div class="quiz-navigation">
+
+                    <button
+                        class="secondary-btn"
+                        id="quitQuizBtn">
+
+                        Exit Quiz
+
+                    </button>
+
+                    <button
+                        class="primary-btn"
+                        id="nextBtn"
+                        disabled>
+
+                        Next
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             RESULT SECTION
+        ================================= -->
+
+        <section
+            class="result-section hidden"
+            id="resultScreen">
+
+            <div class="container result-container">
+
+                <span class="eyebrow">
+                    QUIZ COMPLETE
+                </span>
+
+                <h1>
+                    Your Result
+                </h1>
+
+                <div class="score-card">
+
+                    <span class="score-label">
+                        YOUR SCORE
+                    </span>
+
+                    <div class="score">
+                        <span id="scoreValue">
+                            0
+                        </span>
+
+                        <small>
+                            / 20
+                        </small>
+                    </div>
+
+                    <div class="score-percentage"
+                         id="scorePercentage">
+
+                        0%
+
+                    </div>
+
+                    <p id="resultMessage">
+                        Keep learning and try again.
+                    </p>
+
+                </div>
+
+
+                <!-- Result Statistics -->
+
+                <div class="result-stats">
+
+                    <div class="result-stat">
+
+                        <span>
+                            Correct
+                        </span>
+
+                        <strong id="correctAnswers">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="result-stat">
+
+                        <span>
+                            Incorrect
+                        </span>
+
+                        <strong id="incorrectAnswers">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="result-stat">
+
+                        <span>
+                            Accuracy
+                        </span>
+
+                        <strong id="accuracyValue">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Result Actions -->
+
+                <div class="result-actions">
+
+                    <button
+                        class="primary-btn"
+                        id="restartBtn">
+
+                        Try Again
+                        <span>↻</span>
+
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        id="chooseCategoryBtn">
+
+                        Choose Another Category
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 <strong>Quizora</strong>.
+                
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script1.js"></script>
+
+</body>
+</html>
